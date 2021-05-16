@@ -1,0 +1,50 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 97vw;
+    font-family: Arial, Helvetica, sans-serif;
+    gap: 1%
+}
+
+
+.container {
+    width: 60vw;
+    height: 60vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr); 
+    background-color: silver;
+    padding: 1px ;
+    text-align: center;
+    margin: auto;
+}
+
+.square-div {
+    background-color: white;
+    border: 1px solid rgba(197, 194, 194, 0.144) ;
+}
+
+.square-div:hover {
+    background-color: green;
+}
+
+.menu {
+    text-align: center;
+    height: 20vh;
+}
+button {
+    place-self: center;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    border : 1px solid purple;
+    background-color: rgb(53, 33, 47);
+    color: seashell;
+}
+
+button:hover {
+    background-color: rgb(255, 205, 240);
+    box-shadow: 0px 0px 10px 1px purple;
+    color: sienna;
+}
