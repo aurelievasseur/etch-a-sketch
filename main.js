@@ -76,7 +76,6 @@ erase.addEventListener('click', eraseAll);
 const blackAndWhite = document.querySelector('.black');
 blackAndWhite.addEventListener('click', function(){
     rainbowSelected = false;
-
 });
 // button to switch to rainbow
 const rainbow = document.querySelector('.rainbow');
