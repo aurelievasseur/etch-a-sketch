@@ -1,10 +1,11 @@
 // list of variables
 const container = document.querySelector('.container');
 let squareGrid; 
+let rainbowSelected = true;
 
 //  Starting grid when loading the page
 function startingGrid() {
-    for(i=0; i <16; i++){
+    for(i=0; i <64; i++){
         let newDiv = document.createElement('div');
         newDiv.className= 'square-div';
         newDiv.id = i;
@@ -40,20 +41,27 @@ function gridCreation(){
 }
 // event listeners for the individual squares
 
-// Change the color of the square to a random color
+// Manages which color 
 function changeColor(e) {
+    console.log('color');
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
-    squareGrid[e.target.id].style.backgroundColor = "#" + randomColor;
+    if (rainbowSelected) {
+        squareGrid[e.target.id].style.backgroundColor = "#" + randomColor;
+    } else squareGrid[e.target.id].style.backgroundColor = 'black';
 }
+
+// listen for when mouse enter the container and changes the colors to rainbow
 function listenToMe() {
+    console.log('me');
     squareGrid = document.querySelectorAll('.square-div');
     squareGrid.forEach(square => {
     square.addEventListener('mouseenter', changeColor)
     })
 }
+// reset the screen to white
 function eraseAll() {
-        squareGrid.forEach(square => {
-        square.style.backgroundColor = 'white';
+    squareGrid.forEach(square => {
+    square.style.backgroundColor = 'white';
     }); 
 }
 
@@ -64,5 +72,15 @@ selectSize.addEventListener('click', gridCreation);
 const erase = document.querySelector('.erase');
 erase.addEventListener('click', eraseAll);
 
+// butto to switch to black
+const blackAndWhite = document.querySelector('.black');
+blackAndWhite.addEventListener('click', function(){
+    rainbowSelected = false;
 
+});
+// button to switch to rainbow
+const rainbow = document.querySelector('.rainbow');
+rainbow.addEventListener('click', function (){
+    rainbowSelected = true;
+});
 startingGrid();
